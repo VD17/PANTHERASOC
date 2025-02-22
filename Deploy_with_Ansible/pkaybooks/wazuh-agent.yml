@@ -1,0 +1,17 @@
+---
+- hosts: wazuh-agents-linux
+  become: yes
+  become_user: root
+  roles:
+    - ../roles/wazuh/ansible-wazuh-agent
+  vars:
+    wazuh_managers:
+      - address: 192.168.140.40
+        port: 1514
+        protocol: tcp
+        api_port: 55000
+        api_proto: 'https'
+        api_user: wazuh
+#        auth_password: "BlackPanther25"
+        max_retries: 5
+        retry_interval: 5

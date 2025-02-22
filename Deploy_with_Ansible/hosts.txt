@@ -1,0 +1,18 @@
+[all_in_one]
+192.168.160.100 ansible_user=root ansible_ssh_private_key_file=~/.ssh.id_rsa
+
+[wazuh-agents-linux]
+192.168.160.100 ansible_host=192.168.160.100 ansible_ssh_user=root
+
+
+[wazuh-agents-windows]
+192.168.110.102 ansible_host=192.168.110.102
+
+[wazuh-agents-windows:vars]
+ansible_user=Administrator
+ansible_password=PantherADmin25.
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_winrm_server_cert_validation=ignore
+ansible_port=5986
+
